@@ -1,0 +1,425 @@
+@charset "utf-8";
+@import "variables";
+$normalColor: #1ab394;
+$hiddenColor: #ed5565;
+$warningTips: #ed5565;
+$btnPrimaryColor: #1ab394;
+$btnThirdColor: #1c84c6;
+
+/* 按钮样式 */
+
+.btn {
+	padding: 6px 12px;
+
+
+    &.ceee {
+        border-color: #eee;
+        background-color: #eee;
+    }
+}
+
+
+/* icon样式补充 */
+
+.font-24 {
+    font-size: 24px;
+}
+
+.icon-hidden {
+    color: $hiddenColor;
+}
+
+.icon-normal {
+    color: $normalColor;
+}
+
+/* select 样式*/
+select.form-control {
+    padding: 6px 6px !important;
+}
+
+
+/* 供应商管理 */
+
+.operation-btns {
+    margin-bottom: 30px;
+}
+
+.search-box {
+    background-color: #fff;
+    min-width: $minWidth;
+    padding: 15px 20px 0 20px;
+    margin-bottom: 10px;
+    overflow:hidden;
+    
+    .form-group {
+        display: inline-block;
+        margin-right: 15px;
+        margin-left: 0;
+        .form-list {
+            width: inherit !important;
+            display: inline-block;
+        }
+    }
+
+
+}
+
+//分页样式
+.pagin-box {
+    position: relative;
+    overflow: hidden;
+    .pagin-wrap {
+        clear: both;
+        float: left;
+        .pagination {
+            float: left;
+            margin-top: 0;
+        }
+        .pagin-tip {
+            display: inline-block;
+            line-height: 32px;
+            margin-left: 10px;
+            float: left;
+            .to-page {
+                border: none;
+                width: 33px;
+                height: 32px;
+                text-indent: 5px;
+                border: 1px solid #ddd;
+            }
+        }
+    }
+}
+
+//供应商新增编辑
+.container-wrapper {
+	width: 1106px;
+
+    .container-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding-left: 20px;
+        z-index: 10;
+        width: 100%;
+        height: 78px;
+        line-height: 78px;
+        // background: #fff;
+        overflow: hidden;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+
+        h5 {
+            display: inline-block;
+            float: left;
+            padding-top: 20px;
+            font-size: 18px;
+            text-overflow: ellipsis;
+            font-weight: 600;
+        }
+        .right-btn {
+            position: absolute;
+            width: 1106px;
+            text-align: right;
+            .btn {
+                padding: 6px 15px;
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .module-wrapper {
+    	margin-top: 90px;
+    }
+    .module {
+        background: #fff;
+        position: relative;
+
+        margin-bottom: 15px;
+        // padding-bottom: 30px;
+        .module-content {
+            padding: 30px $marginLeft 15px;
+            overflow: hidden;
+        }
+
+        .form-group {
+        	margin-left: 0;
+        	margin-right: 0;
+
+            .control-label {
+                padding-left: 0;
+                padding-right: 0;
+                float: left;
+            }
+
+            .checked-tip {
+                display: inline-block;
+                padding-top: 7px;
+                padding-left: 20px;
+                color: $warningTips;
+            }
+        }
+        .contact-bg {
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px dashed #e6eaed;
+            position: relative;
+
+            .w-label {
+                margin-left: -20px;
+            }
+
+            .del-contact {
+                position: absolute;
+                display: inline-block;
+                font-size: 24px;
+                color: #FF0000;
+                right: 10px;
+                top: 10px;
+                cursor: pointer;
+            }
+        }
+        .add-btn {
+			float: right;
+            margin-right: 20px;
+			color: $btnPrimaryColor;
+			background-color: transparent;
+            border: 1px solid $btnPrimaryColor;
+
+        }
+        .module-title {
+			padding-left: 16px;
+            border-bottom: 1px solid #e6eaed;
+            height:45px;
+            line-height: 45px;
+            // margin-bottom: 30px;
+            font-family: '微软雅黑';
+            font-weight: 400;
+            font-style: normal;
+            font-size: 16px;
+        }
+
+        .new-btn {
+        	cursor: pointer;
+        	margin-left: 12px;
+            line-height: 34px;
+            color: $btnPrimaryColor;
+
+        }
+        .address-detail {
+            .col-xs-4 {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .aptitude {
+        	padding: 0 $labelWidth;
+
+        	.progress-cancel {
+        		padding-top: 10px;
+        		padding-left: 10px;
+        		cursor: pointer;
+
+        	}
+
+        	.del-uploadfile {
+        		color: $warningTips;
+        		margin-left: 10px;
+        		cursor: pointer;
+        	}
+        }
+		
+		&.other {
+			padding-top: 30px;
+
+			#comment {
+				width: 600px;
+				height: 70px;
+				margin-left: 18px;
+			}
+
+			.radio-label {
+				margin-top: 7px;
+				margin-left: 18px;
+				margin-bottom: 0;
+			}
+		}
+        
+    }
+}
+
+.error {
+    background-color: #ffebed;
+    border: 1px solid #ed5565;
+}
+
+/* 斜条纹背景 */
+.progress-bg {
+	position: relative;
+
+	height: 34px;
+	width: 365px;
+	background-color: #f3f3f4;
+}
+
+.stripes {
+	position:absolute;
+	height: 34px;
+	width: 365px;
+	-webkit-background-size: 10px 10px;
+	-moz-background-size: 10px 10px;
+	background-size: 10px 10px;
+    z-index: 1;
+}
+
+.upload-title {
+    position: absolute;
+    z-index: 2;
+    height: 34px;
+    padding-left: 5px;
+    line-height: 34px;
+}
+
+.angled-135 {
+	background-color: #ffe5c8;
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent), to(transparent));
+	background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
+
+/* 详情页面 */
+
+.list-detail {
+	display: inline-block;
+	margin-top: 7px;
+	margin-left: 8px;
+    max-width: 900px;
+}
+
+.detail {
+    .module {
+        .contact-bg {
+            display: inline-block;
+            width: 520px;
+            margin-left: 20px;
+            margin-right: 0;
+
+            .w-label {
+                margin-left: -20px;
+            }
+        }
+
+    }
+
+
+
+}
+
+
+.w-label {
+	width: $labelWidth;
+}
+
+.w-info {
+	width: $inputWidth;
+	margin-left: 18px;
+	float: left;
+}
+
+
+/* 场馆管理 */
+.operation-btns {
+    .operation-tips {
+        margin-left: 10px;
+        padding-top: 5px;
+        padding-left: 16px;
+        display: inline-block;
+        font-size: 12px;
+        width: 233px;
+        height: 28px;
+        background: url("../../images/operation-tips-bg.png")center center no-repeat;
+    }
+}
+
+/* 编辑场馆 */
+
+.pays-info {
+
+    .module-content {
+        .select-pays {
+
+            .control-label {
+                padding-top: 0;
+
+                select.form-control {
+                    width: 85%;
+                    float: right;
+                }
+            }
+
+            .remove-item {
+                color: $warningTips;
+                font-size: 24px;
+                padding-top: 4px;
+                margin-left: 4px;
+                cursor: pointer;
+            }
+        }
+
+        .w-info {
+            position: relative;
+
+            &::after {
+                content: "元";
+                position: absolute;
+
+                right: 10px;
+                top: 6px;
+            }
+
+            .form-control {
+                padding-right: 30px;
+            }
+        }
+
+
+    }
+    
+}
+
+.pt7 {
+    padding-top: 7px;
+}
+.form-horizontal {
+    .checkbox-item {
+        display: inline-block;
+
+        .checkbox-wrap {
+            display: inline-block;
+
+            .checkbox {
+
+                min-height: inherit;
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

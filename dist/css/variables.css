@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/* 全局变量 */
+/* 全局变量 END */
+/* 框架侧边导航变量 */
+/* 框架侧边导航变量 END */
+/* 头部导航变量 */
+/* 头部导航变量 END */
+@font-face {
+  font-family: 'iconfont';
+  /* project id："177769" */
+  src: url("http://at.alicdn.com/t/font_4x1is49od17l23xr.eot");
+  src: url("http://at.alicdn.com/t/font_4x1is49od17l23xr.eot") format("embedded-opentype"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.woff") format("woff"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.ttf") format("truetype"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.svg#iconfont") format("svg"); }
+.icon {
+  position: relative;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon.icon-menu-block-down:before {
+    content: "\e604"; }
+  .icon.icon-menu-block-up:before {
+    content: "\e643"; }
+  .icon.icon-menu-right:before {
+    content: "\e606"; }
+  .icon.icon-menu-left:before {
+    content: "\e607"; }
+  .icon.icon-menu-up:before {
+    content: "\e608"; }
+  .icon.icon-menu-down:before {
+    content: "\e609"; }
+  .icon.icon-menu:before {
+    content: "\e601"; }
+  .icon.icon-shop:before {
+    content: "\e63f"; }
+  .icon.icon-statistics:before {
+    content: "\e640"; }
+  .icon.icon-key:before {
+    content: "\e641"; }
+  .icon.icon-distribution:before {
+    content: "\e642"; }
+  .icon.icon-add:before {
+    content: "\e65d"; }
+  .icon.icon-edit:before {
+    content: "\e67c"; }
+  .icon.icon-remove:before {
+    content: "\e654"; }
+  .icon.icon-hidden:before {
+    content: "\e62c"; }
+  .icon.icon-normal:before {
+    content: "\e644"; }
+  .icon.icon-save:before {
+    content: "\e637"; }
+  .icon.icon-delete:before {
+    content: "\e638"; }
+  .icon.icon-delcontact:before {
+    content: "\e639"; }
+  .icon.icon-upload:before {
+    content: "\e636"; }
+
+/*# sourceMappingURL=variables.css.map */

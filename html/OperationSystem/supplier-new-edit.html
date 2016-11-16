@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增/编辑供应商</title>
+    <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../dist/css/content.css">
+    <link rel="stylesheet" href="../../dist/css/main.css">
+</head>
+<body>
+    <div class="container-main">
+        <!-- 新增/编辑供应商 -->
+        <div class="container-wrapper">
+
+            <!-- 头部 -->
+            <div class="container-header">
+                <h5>新增供应商</h5>
+                <div class="right-btn">
+                    <button class="btn btn-info" type="submit"><span class="icon icon-save icon-left"></span>保存</button>
+                    <button class="btn btn-warning" type="button"><span class="icon icon-delete icon-left"></span>取消</button>
+                </div>
+            </div>
+            <!-- 头部 END -->
+
+            <!-- 新增部分 -->
+            <div class="module-wrapper row">
+
+                <div class="module row-box">
+                    <div class="module-title">
+                        基本信息
+                    </div>
+                    <div class="module-content">
+                        <form method="get" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="w-label control-label"><span class="must">*</span>供应商名称：</label>
+                                <div class="w-info">
+                                <input type="text" class="form-control error" placeholder="" maxlength="50">
+                                </div>
+                                <span class="checked-tip"><span class="must">*</span>不得超过50个字</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label"><span class="must">*</span>国家：</label>
+                                <div class="w-info">
+                                    <select class="form-control">
+                                        <option value="">选择国家</option>
+                                        <option value="">中国</option>
+                                        <option value="">韩国</option>
+                                    </select>
+                                </div>
+                                <a class="new-btn">新增</a>
+                                <span class="checked-tip"><span class="must">*</span>必填项</span>
+                            </div>
+                            <div class="form-group address-detail">
+                                <label class="w-label control-label">详细地址：</label>
+                                <div class="w-info">
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择省份</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择城市</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择地区</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label"></label>
+                                <div class="w-info">
+                                    <textarea rows="2" class="form-control" placeholder="输入详细地址" maxlength="100"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+
+                <div class="module row-box">
+                    <div class="module-title">
+                        联系人
+                    </div>
+                    <div class="module-content">
+                        <form method="get" class="form-horizontal contact-bg">
+                            <div class="form-group">
+                                <label class="w-label control-label">联系人1：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="" maxlength="10">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">Title：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="" maxlength="20">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">联系人手机：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="输入11位手机号" maxlength="11">
+                                </div>
+                                <span class="checked-tip">手机号格式不正确</span>
+                            </div>
+                            <div class="form-group ">
+                                <label class="w-label control-label">办公电话：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="输入电话号">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">联系邮箱：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="xxxx@xxxx.com">
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="btn-group fr">
+                            <button class="btn btn-border-success"><span class="icon icon-add icon-left"></span>新增</button>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="module row-box">
+                    <div class="module-title">
+                        银行账号
+                    </div>
+                    <div class="module-content">
+                        <form method="get" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="w-label control-label">账号类型：</label>
+                                <div class="w-info">
+                                    <select class="form-control">
+                                        <option value="">选择账号类型</option>
+                                        <option value="">国内</option>
+                                        <option value="">国外</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">开户银行：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="输入开户行名称" maxlength="50">
+                                </div>
+                                <a class="new-btn">新增</a>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">收款人姓名：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="" maxlength="10">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">收款人账号：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="输入银行卡号" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">收款人常驻国家：</label>
+                                <div class="w-info">
+                                    <select class="form-control">
+                                        <option value="">选择国家</option>
+                                        <option value="">中国</option>
+                                        <option value="">韩国</option>
+                                    </select>
+                                </div>
+                                <a class="new-btn">新增</a>
+                            </div>
+                            <div class="form-group address-detail">
+                                <label class="w-label control-label">收款人地址：</label>
+                                <div class="w-info">
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择省份</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择城市</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择地区</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label"></label>
+                                <div class="w-info">
+                                    <textarea rows="2" class="form-control" placeholder="输入详细地址" maxlength="100"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">开户行国家：</label>
+                                <div class="w-info">
+                                    <select class="form-control">
+                                        <option value="">选择国家</option>
+                                        <option value="">中国</option>
+                                        <option value="">韩国</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">付款币种：</label>
+                                <div class="w-info">
+                                    <select class="form-control">
+                                        <option value="">人民币</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group address-detail">
+                                <label class="w-label control-label">开户行地址：</label>
+                                <div class="w-info">
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择省份</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择城市</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control">
+                                            <option value="">选择地区</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label"></label>
+                                <div class="w-info">
+                                    <textarea class="form-control" placeholder="输入详细地址" maxlength="100"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">开户行在其代理行账号：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="输入银行卡号" maxlength="50">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="w-label control-label">转换码：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="" maxlength="50">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+
+                <div class="module row-box">
+                    <div class="module-title">
+                        供应商资质
+                    </div>
+                    <div class="module-content">
+                        <form method="get" class="form-horizontal aptitude">
+                            <div class="form-group">
+                                <div class="progress-bg fl">
+                                    <div class="angled-135 stripes" style="width:100px;"></div>
+                                    <div class="upload-title">
+                                        helloworld.jpg
+                                    </div>
+                                </div>
+                                <span class="progress-cancel fl">取消</span>
+                            </div>
+                            <div class="form-group">
+                                <a href="javascript:;">helloworld.jpg</a><span class="del-uploadfile">删除</span>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success"><span class="icon icon-upload"></span>上传</button>
+                                <span class="upload-tips">支持JPG、JPEG、PNG、WORD、EXCEL、PPT等格式</span>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+
+                <div class="module row-box other">
+                    <div class="module-content">
+                        <form method="get" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="w-label control-label">备注：</label>
+                                <textarea id="comment" class="form-control fl"  onkeyup="this.value = this.value.slice(0,500)" placeholder="请输入备注消息" maxlength="500"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">状态：</label>
+                                <label class="radio-label"><input type="radio" value="1" name="" checked="">正常</label>
+                                <label class="radio-label"><input type="radio" value="2" name="">隐藏</label>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <!-- 新增部分 END -->
+        </div>
+        <!-- 新增/编辑供应商 -->
+
+    </div>
+    
+    <script src="../../dist/js/jquery.min.js"></script>
+    <script src="../../dist/js/common-iframe.js"></script>
+
+</body>
+</html>

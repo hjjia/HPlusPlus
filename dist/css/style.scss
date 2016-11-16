@@ -1,0 +1,671 @@
+@charset "utf-8";
+
+@import "variables";
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+
+	width: 100%;
+	height: 100%;
+
+	font-size: $baseFontSize;
+
+	color: $baseColor;
+	background-color: $baseBg;
+}
+
+a {
+	color: $linkFontColor;
+}
+
+.icon {
+    display: inline-block;
+}
+
+#wrapper {
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+
+	#page-header {
+		position: fixed;
+		z-index: 2;
+
+		top: 0;
+		left: 220px;
+		right: 0;
+
+		height: 60px;
+
+		padding-left: $marginLeft;
+
+		background-color: $baseBg;
+
+		&.folder {
+			left: 24px;
+
+		}
+
+		.logo-wrap {
+			margin-left: 5px;
+			margin-top: 10px;
+			height: 36px;
+			line-height: 36px;
+
+			.logo {
+				display: inline-block;
+				vertical-align: middle;
+
+				width: 170px;
+				height: 26px;
+
+				background: url(../../images/common/icon-logo.png);
+
+				& + .title {
+					margin-left: 20px;
+				}
+			}
+
+			.title {
+				display: inline-block;
+				vertical-align: middle;
+
+				font-size: 16px;
+
+				color: $themeTitleColor;
+			}
+
+			.right {
+				display: block;
+				float: right;
+
+				height: 36px;
+				padding-right: 30px;
+
+				.circle-num {
+					background-color: #ed5565;
+					color: #fff;
+				}
+
+				.list-inline {
+
+					li {
+						padding-left: 10px;
+						padding-right: 10px;
+
+						.item-content {
+							&:link,
+							&:active,
+							&:visited,
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+
+	#page-navbar-left {
+		position: fixed;
+		z-index: 3;
+
+		top: 0;
+		bottom: 0;
+		left: 0;
+
+		width: 220px;
+
+		background-color: $baseNavColor;
+		color: $firstTitleColor;
+
+		@include navLefUnfolder();
+
+		&.folder {
+			@include navLeftFolder();
+		}
+
+		/* 左侧菜单控制按钮 */
+		.menu-control {
+			position: absolute;
+
+			top: 14px;
+			right: 0;
+			
+			border-radius: 3px 0 0 3px;
+
+			text-align: center;
+			line-height: 25px;
+
+			background-color: $btnWarnColor;
+
+			.icon-menu {
+				vertical-align: middle;
+
+				padding: 3px;
+				font-size: 18px;
+
+				color: #fff;
+
+				cursor: pointer;
+			}
+		}
+
+		/* 角色面板 */
+		.user-panel {
+			width: 100%;
+			height: 171px;
+
+			padding-top: 30px;
+			padding-bottom: 30px;
+
+			text-align: center;
+
+			background-color: $activeNavColor;
+
+			.img-wrap {
+				width: 66px;
+				height: 66px;
+
+				border-radius: 50%;
+				border: 1px solid $navBorderColor;
+
+				margin-bottom: 10px;
+				margin-left: auto;
+				margin-right: auto;
+
+				@include defaultUserLogo();
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.info-wrap {
+				position: relative;
+
+				.name {
+					font-weight: bold;
+				}
+
+				.role-wrap {
+					cursor: pointer;
+
+					color: $secondTitleColor;
+
+					.icon-menu-block-down {
+						vertical-align: middle;
+
+						font-size: 18px;
+
+						cursor: pointer;
+					}
+
+					& + .drop-panel {
+						top: 90%;
+					}
+
+					&:hover {
+						& + .drop-panel {
+							display: block;
+						}
+					}
+				}
+
+			}
+		}
+
+		/* 角色面板 END */
+
+		.nav-list {
+			list-style: none;
+
+			margin-bottom: 0;
+			padding: 0;
+
+			.nav-item {
+				position: relative;
+
+				&:hover {
+					background-color: $activeNavColor;
+
+					.link {
+						color: #fff;
+
+					}
+				}
+
+				.link {
+					display: block;
+
+					//border-bottom: 1px solid $navBorderColor;
+
+					margin: 0 $marginLeft;
+					height: 60px;
+					line-height: 60px;
+					font-weight: bold;
+
+					color: $navBarFontColor;
+
+					.text {
+						display: inline-block;
+
+						padding-left: 5px;
+						width: auto;
+					}
+
+					.icon-right {
+						float: right;
+						vertical-align: middle;
+
+						height: 60px;
+						line-height: 60px;
+					}
+
+					&:link,
+					&:active,
+					&:visited,
+					&:hover {
+						text-decoration: none;
+					}
+				}
+
+				&:last-child,
+				&.active {
+					.link {
+						border-bottom: none;
+					}
+				}
+
+				&.active {
+					.link {
+						color: #fff;
+
+						.icon-menu-left {
+							transform: rotate(-90deg);
+							-ms-transform: rotate(-90deg); 	/* IE 9 */
+							-moz-transform: rotate(-90deg); 	/* Firefox */
+							-webkit-transform: rotate(-90deg); /* Safari 和 Chrome */
+							-o-transform: rotate(-90deg); 	/* Opera */
+						}
+					}
+				}
+
+				&.active {
+					background-color: $activeNavColor;
+				}
+
+				.subnav {
+					display: none;
+
+					margin: 0 20px;
+					padding-bottom: 20px;
+
+					.subnav-list {
+						list-style: none;
+
+						padding-left: 0;
+
+						.subnav-item {
+
+							&.active,
+							&:hover {
+								.item-content {
+									color: #fff;
+								}
+							}
+
+							.item-content {
+								display: block;
+
+								padding: 0 30px;
+								text-decoration: none;
+								height: 34px;
+								line-height: 34px;
+
+								color: $navBarFontColor;
+
+								&:hover,
+								&:active,
+								&:link {
+									text-decoration: none;
+								}
+							}
+						}
+					}
+				}
+				/* subnav END */
+			}
+		}
+	}
+
+	#page-content {
+		position: relative;
+
+		margin: 0 0 0 219px;
+		padding-top: 60px;
+
+		//@include navLefUnfolder();
+
+		&.folder {
+			margin-left: 24px;
+
+			//@include navLeftFolder();
+		}
+
+		height: 100%;
+
+		.tab-menu {
+			position: absolute;
+			z-index: 2;
+
+			top: 62px;
+			left: 1px;
+
+			border-top: 1px solid $tabBorderColor;
+			border-bottom: 2px solid $activeNavColor;
+			width: 100%;
+			height: 40px;
+
+			background-color: #fafafa;
+
+			.glyphicon {
+				top: 2px;
+			}
+
+			button {
+				border: 0;
+				height: 37px;
+				width: 40px;
+
+				outline: 0;
+
+				background: #fff;
+			}
+
+			.tab-btn:hover {
+				color: #777;
+				background: #f2f2f2;
+
+				cursor: pointer;
+			}
+
+			.tab-left {
+				position: absolute;
+				z-index: 2;
+
+				top: 0;
+				left: 0;
+
+				border-right: solid 1px $tabBorderColor;
+
+				width: 40px;
+				height: 37px;
+				text-align: center;
+
+				color: #999;
+			}
+
+			.tab-main {
+				overflow: hidden;
+
+				margin-left: 40px;
+				width: 10000px;
+				height: 37px;
+
+				.tab-list {
+					float: left;
+
+					list-style: none;
+
+					margin: 0;
+					padding: 0;
+
+					.tab-item {
+						display: block;
+						float: left;
+						border-right: 1px solid $tabBorderColor;
+
+						&:hover {
+							color: #777;
+							background: #f2f2f2;
+
+							cursor: pointer;
+						}
+
+						&.active {
+							border-right: none;
+
+							background-color: $activeNavColor;
+
+							.link {
+								color: $tabActiveColor;
+							}
+
+							&:hover {
+								background-color: $activeNavColor;
+
+								.link {
+									color: #fff;
+								}
+							}
+						}
+
+						.link {
+							display: block;
+
+							padding: 0 15px;
+							height: 37px;
+							line-height: 37px;
+							text-align: center;
+
+							color: #999;
+
+							&:link,
+							&:active,
+							&:visited,
+							&:hover {
+								text-decoration: none;
+							}
+
+							.glyphicon {
+								margin-left: 5px;
+
+								color: #ccc;
+							}
+						}
+
+					}
+				}
+			}
+
+			.right {
+				position: absolute;
+				z-index: 2;
+
+				top: 0;
+				right: 0;
+
+				height: 37px;
+
+				font-size: 0;
+
+				.tab-right {
+					display: inline-block;
+
+					border-left: solid 1px $tabBorderColor;
+
+					width: 40px;
+					text-align: center;
+					font-size: 13px;
+
+					color: #999;
+
+					&.btn-fix {
+						width: auto;
+					}
+
+					&.btn-exit {
+						width: 60px;
+					}
+
+					&.btn-exit,
+					&.btn-fix {
+						.glyphicon {
+							margin-right: 5px;
+						}
+					}
+
+					&.btn-close-tab {
+						position: relative;
+
+						&:hover {
+							.drop-panel {
+								display: block;
+							}
+						}
+
+						.drop-panel {
+							display: none;
+
+							right: 0;
+							left: auto;
+
+							padding-top: 2px;
+
+							.drop-wrap {
+
+								.list-block {
+									border: 1px solid $tabBorderColor;
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+	}
+}
+
+#page-main {
+	margin-top: 40px;
+
+	height: calc(100% - 102px);
+	overflow: hidden;
+}
+
+/* 下拉单 - 管理员面板 、 关闭选项卡 */
+.drop-panel {
+	display: none;
+	position: absolute;
+	z-index: 2;
+
+	top: 100%;
+	left: 30px;
+
+	padding-top: 10px;
+
+	width: 160px;
+
+	&:hover {
+		display: block;
+	}
+
+	.list-block {
+		list-style: none;
+		padding-left: 0;
+
+		background-color: $advanceBg;
+
+		.list-item {
+			border-bottom: 1px solid $borderColor;
+			padding: 5px;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			.item-content {
+				display: block;
+
+				height: 35px;
+				line-height: 35px;
+
+				color: $baseColor;
+
+				&:hover {
+					text-decoration: none;
+
+					background: $baseBg;
+				}
+
+				&:link,
+				&:active {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+}
+/* 下拉单 - 管理员面板 、 关闭选项卡 END */
+
+.circle-num {
+	border-radius: 50%;
+	padding: 4px;
+}
+
+/* 辅助样式 */
+.border-red {
+	border: 1px solid #ff0000;
+}
+
+.border-yellow {
+	border: 1px solid yellow;
+}
+
+/* 登录和注册 */
+
+.login-wrapper,
+.register-box {
+	width: 300px;
+	max-width: 400px;
+	z-index: 100;
+	margin: 0 auto;
+	padding-top: 150px;
+
+	.logo-juooo {
+		height: 110px;
+		background: url(../../images/common/icon-logo.png) 0 0 no-repeat;
+		background-size: 100%;
+	}
+
+	.btn {
+		width: 100%;
+	}
+
+	.btn-full {
+		border: 1px solid #ff8e04;
+		color: #fff;
+		background-color: #ff8e04;
+		&:hover,
+		&.active {
+			border: 1px solid #fa900b;
+			background-color: #fa900b;
+		}
+	}
+
+	.checkbox-align {
+		line-height: 21px;
+	}
+}

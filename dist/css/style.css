@@ -1,0 +1,465 @@
+@charset "UTF-8";
+/* 全局变量 */
+/* 全局变量 END */
+/* 字体样式变量 */
+/* 字体样式变量 END */
+/* 框架侧边导航变量 */
+/* 框架侧边导航变量 END */
+/* 头部导航变量 */
+/* 头部导航变量 END */
+/* iframe 内部变量 */
+/* iframe 内部变量 END */
+/* 表格变量 */
+/* 表格变量 END */
+/* 按钮公共变量 */
+/* 按钮公共变量 END */
+/* 表单样式 */
+/* 表单样式 END */
+@font-face {
+  font-family: 'iconfont';
+  /* project id："177769" */
+  src: url("http://at.alicdn.com/t/font_4x1is49od17l23xr.eot");
+  src: url("http://at.alicdn.com/t/font_4x1is49od17l23xr.eot") format("embedded-opentype"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.woff") format("woff"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.ttf") format("truetype"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.svg#iconfont") format("svg"); }
+.icon {
+  position: relative;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon.icon-menu-block-down:before {
+    content: "\e604"; }
+  .icon.icon-menu-block-up:before {
+    content: "\e643"; }
+  .icon.icon-menu-right:before {
+    content: "\e606"; }
+  .icon.icon-menu-left:before {
+    content: "\e607"; }
+  .icon.icon-menu-up:before {
+    content: "\e608"; }
+  .icon.icon-menu-down:before {
+    content: "\e609"; }
+  .icon.icon-menu:before {
+    content: "\e601"; }
+  .icon.icon-shop:before {
+    content: "\e63f"; }
+  .icon.icon-statistics:before {
+    content: "\e640"; }
+  .icon.icon-key:before {
+    content: "\e641"; }
+  .icon.icon-distribution:before {
+    content: "\e642"; }
+  .icon.icon-add:before {
+    content: "\e65d"; }
+  .icon.icon-edit:before {
+    content: "\e67c"; }
+  .icon.icon-remove:before {
+    content: "\e654"; }
+  .icon.icon-hidden:before {
+    content: "\e62c"; }
+  .icon.icon-normal:before {
+    content: "\e644"; }
+  .icon.icon-save:before {
+    content: "\e637"; }
+  .icon.icon-delete:before {
+    content: "\e638"; }
+  .icon.icon-delcontact:before {
+    content: "\e639"; }
+  .icon.icon-upload:before {
+    content: "\e636"; }
+
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: #666;
+  background-color: #f3f3f5; }
+
+a {
+  color: #337ab7; }
+
+.icon {
+  display: inline-block; }
+
+#wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  #wrapper #page-header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 220px;
+    right: 0;
+    height: 60px;
+    padding-left: 20px;
+    background-color: #f3f3f5; }
+    #wrapper #page-header.folder {
+      left: 24px; }
+    #wrapper #page-header .logo-wrap {
+      margin-left: 5px;
+      margin-top: 10px;
+      height: 36px;
+      line-height: 36px; }
+      #wrapper #page-header .logo-wrap .logo {
+        display: inline-block;
+        vertical-align: middle;
+        width: 170px;
+        height: 26px;
+        background: url(../../images/common/icon-logo.png); }
+        #wrapper #page-header .logo-wrap .logo + .title {
+          margin-left: 20px; }
+      #wrapper #page-header .logo-wrap .title {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+        color: #2f4050; }
+      #wrapper #page-header .logo-wrap .right {
+        display: block;
+        float: right;
+        height: 36px;
+        padding-right: 30px; }
+        #wrapper #page-header .logo-wrap .right .circle-num {
+          background-color: #ed5565;
+          color: #fff; }
+        #wrapper #page-header .logo-wrap .right .list-inline li {
+          padding-left: 10px;
+          padding-right: 10px; }
+          #wrapper #page-header .logo-wrap .right .list-inline li .item-content:link, #wrapper #page-header .logo-wrap .right .list-inline li .item-content:active, #wrapper #page-header .logo-wrap .right .list-inline li .item-content:visited, #wrapper #page-header .logo-wrap .right .list-inline li .item-content:hover {
+            text-decoration: none; }
+  #wrapper #page-navbar-left {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 220px;
+    background-color: #2f4050;
+    color: #f2f2f2;
+    -webkit-transform: translate3d(0px, 0, 0);
+    -moz-transform: translate3d(0px, 0, 0);
+    -ms-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    /* 左侧菜单控制按钮 */
+    /* 角色面板 */
+    /* 角色面板 END */ }
+    #wrapper #page-navbar-left.folder {
+      -webkit-transform: translate3d(-195px, 0, 0);
+      -moz-transform: translate3d(-195px, 0, 0);
+      -ms-transform: translate3d(-195px, 0, 0);
+      transform: translate3d(-195px, 0, 0);
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      transition: all 0.5s; }
+    #wrapper #page-navbar-left .menu-control {
+      position: absolute;
+      top: 14px;
+      right: 0;
+      border-radius: 3px 0 0 3px;
+      text-align: center;
+      line-height: 25px;
+      background-color: #f8ac59; }
+      #wrapper #page-navbar-left .menu-control .icon-menu {
+        vertical-align: middle;
+        padding: 3px;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer; }
+    #wrapper #page-navbar-left .user-panel {
+      width: 100%;
+      height: 171px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      text-align: center;
+      background-color: #283949; }
+      #wrapper #page-navbar-left .user-panel .img-wrap {
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        border: 1px solid #435363;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        background: url(../../images/common/icon-user.png) center center no-repeat; }
+        #wrapper #page-navbar-left .user-panel .img-wrap img {
+          width: 100%;
+          height: auto; }
+      #wrapper #page-navbar-left .user-panel .info-wrap {
+        position: relative; }
+        #wrapper #page-navbar-left .user-panel .info-wrap .name {
+          font-weight: bold; }
+        #wrapper #page-navbar-left .user-panel .info-wrap .role-wrap {
+          cursor: pointer;
+          color: #a7b1c2; }
+          #wrapper #page-navbar-left .user-panel .info-wrap .role-wrap .icon-menu-block-down {
+            vertical-align: middle;
+            font-size: 18px;
+            cursor: pointer; }
+          #wrapper #page-navbar-left .user-panel .info-wrap .role-wrap + .drop-panel {
+            top: 90%; }
+          #wrapper #page-navbar-left .user-panel .info-wrap .role-wrap:hover + .drop-panel {
+            display: block; }
+    #wrapper #page-navbar-left .nav-list {
+      list-style: none;
+      margin-bottom: 0;
+      padding: 0; }
+      #wrapper #page-navbar-left .nav-list .nav-item {
+        position: relative;
+        /* subnav END */ }
+        #wrapper #page-navbar-left .nav-list .nav-item:hover {
+          background-color: #283949; }
+          #wrapper #page-navbar-left .nav-list .nav-item:hover .link {
+            color: #fff; }
+        #wrapper #page-navbar-left .nav-list .nav-item .link {
+          display: block;
+          margin: 0 20px;
+          height: 60px;
+          line-height: 60px;
+          font-weight: bold;
+          color: #a7b1c2; }
+          #wrapper #page-navbar-left .nav-list .nav-item .link .text {
+            display: inline-block;
+            padding-left: 5px;
+            width: auto; }
+          #wrapper #page-navbar-left .nav-list .nav-item .link .icon-right {
+            float: right;
+            vertical-align: middle;
+            height: 60px;
+            line-height: 60px; }
+          #wrapper #page-navbar-left .nav-list .nav-item .link:link, #wrapper #page-navbar-left .nav-list .nav-item .link:active, #wrapper #page-navbar-left .nav-list .nav-item .link:visited, #wrapper #page-navbar-left .nav-list .nav-item .link:hover {
+            text-decoration: none; }
+        #wrapper #page-navbar-left .nav-list .nav-item:last-child .link, #wrapper #page-navbar-left .nav-list .nav-item.active .link {
+          border-bottom: none; }
+        #wrapper #page-navbar-left .nav-list .nav-item.active .link {
+          color: #fff; }
+          #wrapper #page-navbar-left .nav-list .nav-item.active .link .icon-menu-left {
+            transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            /* IE 9 */
+            -moz-transform: rotate(-90deg);
+            /* Firefox */
+            -webkit-transform: rotate(-90deg);
+            /* Safari 和 Chrome */
+            -o-transform: rotate(-90deg);
+            /* Opera */ }
+        #wrapper #page-navbar-left .nav-list .nav-item.active {
+          background-color: #283949; }
+        #wrapper #page-navbar-left .nav-list .nav-item .subnav {
+          display: none;
+          margin: 0 20px;
+          padding-bottom: 20px; }
+          #wrapper #page-navbar-left .nav-list .nav-item .subnav .subnav-list {
+            list-style: none;
+            padding-left: 0; }
+            #wrapper #page-navbar-left .nav-list .nav-item .subnav .subnav-list .subnav-item.active .item-content, #wrapper #page-navbar-left .nav-list .nav-item .subnav .subnav-list .subnav-item:hover .item-content {
+              color: #fff; }
+            #wrapper #page-navbar-left .nav-list .nav-item .subnav .subnav-list .subnav-item .item-content {
+              display: block;
+              padding: 0 30px;
+              text-decoration: none;
+              height: 34px;
+              line-height: 34px;
+              color: #a7b1c2; }
+              #wrapper #page-navbar-left .nav-list .nav-item .subnav .subnav-list .subnav-item .item-content:hover, #wrapper #page-navbar-left .nav-list .nav-item .subnav .subnav-list .subnav-item .item-content:active, #wrapper #page-navbar-left .nav-list .nav-item .subnav .subnav-list .subnav-item .item-content:link {
+                text-decoration: none; }
+  #wrapper #page-content {
+    position: relative;
+    margin: 0 0 0 219px;
+    padding-top: 60px;
+    height: 100%; }
+    #wrapper #page-content.folder {
+      margin-left: 24px; }
+    #wrapper #page-content .tab-menu {
+      position: absolute;
+      z-index: 2;
+      top: 62px;
+      left: 1px;
+      border-top: 1px solid #eee;
+      border-bottom: 2px solid #283949;
+      width: 100%;
+      height: 40px;
+      background-color: #fafafa; }
+      #wrapper #page-content .tab-menu .glyphicon {
+        top: 2px; }
+      #wrapper #page-content .tab-menu button {
+        border: 0;
+        height: 37px;
+        width: 40px;
+        outline: 0;
+        background: #fff; }
+      #wrapper #page-content .tab-menu .tab-btn:hover {
+        color: #777;
+        background: #f2f2f2;
+        cursor: pointer; }
+      #wrapper #page-content .tab-menu .tab-left {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        border-right: solid 1px #eee;
+        width: 40px;
+        height: 37px;
+        text-align: center;
+        color: #999; }
+      #wrapper #page-content .tab-menu .tab-main {
+        overflow: hidden;
+        margin-left: 40px;
+        width: 10000px;
+        height: 37px; }
+        #wrapper #page-content .tab-menu .tab-main .tab-list {
+          float: left;
+          list-style: none;
+          margin: 0;
+          padding: 0; }
+          #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item {
+            display: block;
+            float: left;
+            border-right: 1px solid #eee; }
+            #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item:hover {
+              color: #777;
+              background: #f2f2f2;
+              cursor: pointer; }
+            #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item.active {
+              border-right: none;
+              background-color: #283949; }
+              #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item.active .link {
+                color: #a7b1c2; }
+              #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item.active:hover {
+                background-color: #283949; }
+                #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item.active:hover .link {
+                  color: #fff; }
+            #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item .link {
+              display: block;
+              padding: 0 15px;
+              height: 37px;
+              line-height: 37px;
+              text-align: center;
+              color: #999; }
+              #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item .link:link, #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item .link:active, #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item .link:visited, #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item .link:hover {
+                text-decoration: none; }
+              #wrapper #page-content .tab-menu .tab-main .tab-list .tab-item .link .glyphicon {
+                margin-left: 5px;
+                color: #ccc; }
+      #wrapper #page-content .tab-menu .right {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        height: 37px;
+        font-size: 0; }
+        #wrapper #page-content .tab-menu .right .tab-right {
+          display: inline-block;
+          border-left: solid 1px #eee;
+          width: 40px;
+          text-align: center;
+          font-size: 13px;
+          color: #999; }
+          #wrapper #page-content .tab-menu .right .tab-right.btn-fix {
+            width: auto; }
+          #wrapper #page-content .tab-menu .right .tab-right.btn-exit {
+            width: 60px; }
+          #wrapper #page-content .tab-menu .right .tab-right.btn-exit .glyphicon, #wrapper #page-content .tab-menu .right .tab-right.btn-fix .glyphicon {
+            margin-right: 5px; }
+          #wrapper #page-content .tab-menu .right .tab-right.btn-close-tab {
+            position: relative; }
+            #wrapper #page-content .tab-menu .right .tab-right.btn-close-tab:hover .drop-panel {
+              display: block; }
+            #wrapper #page-content .tab-menu .right .tab-right.btn-close-tab .drop-panel {
+              display: none;
+              right: 0;
+              left: auto;
+              padding-top: 2px; }
+              #wrapper #page-content .tab-menu .right .tab-right.btn-close-tab .drop-panel .drop-wrap .list-block {
+                border: 1px solid #eee; }
+
+#page-main {
+  margin-top: 40px;
+  height: calc(100% - 102px);
+  overflow: hidden; }
+
+/* 下拉单 - 管理员面板 、 关闭选项卡 */
+.drop-panel {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 30px;
+  padding-top: 10px;
+  width: 160px; }
+  .drop-panel:hover {
+    display: block; }
+  .drop-panel .list-block {
+    list-style: none;
+    padding-left: 0;
+    background-color: #fff; }
+    .drop-panel .list-block .list-item {
+      border-bottom: 1px solid #e7e7e7;
+      padding: 5px; }
+      .drop-panel .list-block .list-item:last-child {
+        border-bottom: none; }
+      .drop-panel .list-block .list-item .item-content {
+        display: block;
+        height: 35px;
+        line-height: 35px;
+        color: #666; }
+        .drop-panel .list-block .list-item .item-content:hover {
+          text-decoration: none;
+          background: #f3f3f5; }
+        .drop-panel .list-block .list-item .item-content:link, .drop-panel .list-block .list-item .item-content:active {
+          text-decoration: none; }
+
+/* 下拉单 - 管理员面板 、 关闭选项卡 END */
+.circle-num {
+  border-radius: 50%;
+  padding: 4px; }
+
+/* 辅助样式 */
+.border-red {
+  border: 1px solid #ff0000; }
+
+.border-yellow {
+  border: 1px solid yellow; }
+
+/* 登录和注册 */
+.login-wrapper,
+.register-box {
+  width: 300px;
+  max-width: 400px;
+  z-index: 100;
+  margin: 0 auto;
+  padding-top: 150px; }
+  .login-wrapper .logo-juooo,
+  .register-box .logo-juooo {
+    height: 110px;
+    background: url(../../images/common/icon-logo.png) 0 0 no-repeat;
+    background-size: 100%; }
+  .login-wrapper .btn,
+  .register-box .btn {
+    width: 100%; }
+  .login-wrapper .btn-full,
+  .register-box .btn-full {
+    border: 1px solid #ff8e04;
+    color: #fff;
+    background-color: #ff8e04; }
+    .login-wrapper .btn-full:hover, .login-wrapper .btn-full.active,
+    .register-box .btn-full:hover,
+    .register-box .btn-full.active {
+      border: 1px solid #fa900b;
+      background-color: #fa900b; }
+  .login-wrapper .checkbox-align,
+  .register-box .checkbox-align {
+    line-height: 21px; }
+
+/*# sourceMappingURL=style.css.map */

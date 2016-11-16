@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑场馆</title>
+    <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../dist/css/content.css">
+    <link rel="stylesheet" href="../../dist/css/main.css">
+    
+</head>
+<body>
+    <div class="container-main">
+        <!-- 编辑场馆 -->
+        <div class="container-wrapper">
+
+            <!-- 头部 -->
+            <div class="container-header">
+                <h5>编辑场馆</h5>
+                <div class="right-btn">
+                    <button class="btn btn-info" type="submit"><span class="icon icon-save icon-left"></span>保存</button>
+                    <button class="btn btn-warning" type="button"><span class="icon icon-delete icon-left"></span>取消</button>
+                </div>
+            </div>
+            <!-- 头部 END -->
+
+            <!-- 编辑部分 -->
+            <div class="module-wrapper row">
+
+                <div class="module row-box">
+                    <div class="module-title">
+                        基本信息
+                    </div>
+                    <div class="module-content">
+                        <form method="get" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="w-label control-label"><span class="must">*</span>场馆名称：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="" value="南山文体中心 小剧场" maxlength="50">
+                                </div>
+                                <span class="checked-tip"><span class="must">*</span>必填项</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">城市：</label>
+                                <div class="w-info pt7">
+                                    北京
+                                </div>
+                            </div>
+                            <div class="form-group address-detail">
+                                <label class="w-label control-label"><span class="must">*</span>详情地址：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="" value="深圳市南山区南山文体中心" maxlength="100">
+                                </div>
+                                <span class="checked-tip"><span class="must">*</span>必填项</span>
+                            </div>
+                            <div class="form-group address-detail">
+                                <label class="w-label control-label"><span class="must">*</span>联系人：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="" value="" maxlength="10">
+                                </div>
+                                <span class="checked-tip"><span class="must">*</span>必填项</span>
+                            </div>
+                            <div class="form-group address-detail">
+                                <label class="w-label control-label"><span class="must">*</span>联系人手机：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="输入手机号" value="">
+                                </div>
+                                <span class="checked-tip"><span class="must">*</span>必填项</span>
+                            </div>
+                            <div class="form-group address-detail">
+                                <label class="w-label control-label">办公电话：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="输入电话号" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">场馆类型：</label>
+                                <div class="w-info">
+                                    <select class="form-control">
+                                        <option>选择场馆类型</option>
+                                        <option>livehouse</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">适演剧种：</label>
+                                <div class="w-info pt7">
+                                    <div class="checkbox-item">
+                                        <div class="checkbox-wrap js-select-all">
+                                            <input type="checkbox">
+                                            <label class="checkbox"><span class="glyphicon glyphicon-ok"></span></label>
+                                        </div>
+                                        儿童亲子
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <div class="checkbox-wrap js-select-all">
+                                            <input type="checkbox">
+                                            <label class="checkbox"><span class="glyphicon glyphicon-ok"></span></label>
+                                        </div>
+                                        音乐剧
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <div class="checkbox-wrap js-select-all">
+                                            <input type="checkbox">
+                                            <label class="checkbox"><span class="glyphicon glyphicon-ok"></span></label>
+                                        </div>
+                                        演唱会
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <div class="checkbox-wrap js-select-all">
+                                            <input type="checkbox">
+                                            <label class="checkbox"><span class="glyphicon glyphicon-ok"></span></label>
+                                        </div>
+                                        儿童亲子
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">楼层数：</label>
+                                <div class="w-info">
+                                    <select class="form-control">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">
+                                    座位数：
+                                </label>
+                                <div class="w-info">
+                                    <input type="number" class="form-control" placeholder="" value="0">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+
+                
+
+                <div class="module row-box pays-info">
+                    <div class="module-title">
+                        费用信息
+                    </div>
+                    <div class="module-content">
+                        <form method="get" class="form-horizontal">
+                            
+                            <div class="form-group">
+                                <label class="w-label control-label">场租：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">场租押金：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="0.00">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="w-label control-label">装台押金：</label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="form-group select-pays">
+                                <label class="w-label control-label">
+                                    <select class="form-control">
+                                        <option value="">选择费用类型</option>
+                                        <option value="">水电费</option>
+                                        <option value="">空调使用费</option>
+                                    </select>
+                                </label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="0.00">
+                                </div>
+                                <span class="icon icon-delcontact remove-item js-remove-item"></span>
+                            </div>
+                            <div class="form-group select-pays">
+                                <label class="w-label control-label">
+                                    <select class="form-control">
+                                        <option value="">选择费用类型</option>
+                                        <option value="">水电费</option>
+                                        <option value="">空调使用费</option>
+                                    </select>
+                                </label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="0.00">
+                                </div>
+                                <span class="icon icon-delcontact remove-item js-remove-item"></span>
+                            </div>
+                            <div class="form-group select-pays">
+                                <label class="w-label control-label">
+                                    <select class="form-control">
+                                        <option value="">选择费用类型</option>
+                                        <option value="">水电费</option>
+                                        <option value="">空调使用费</option>
+                                    </select>
+                                </label>
+                                <div class="w-info">
+                                    <input type="text" class="form-control" placeholder="0.00">
+                                </div>
+                                <span class="icon icon-delcontact remove-item js-remove-item"></span>
+                            </div>
+                            
+                        </form>
+                        <div class="btn-group fr mr20">
+                            <button class="btn btn-border-success js-add-item"><span class="icon icon-add"></span>新增</button>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="module row-box other">
+                    <div class="module-content">
+                        <form method="get" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="w-label control-label">备注：</label>
+                                <textarea id="comment" class="form-control fl"  onkeyup="this.value = this.value.slice(0,500)" placeholder="请输入备注消息" maxlength="500">武汉国际会展中心集展览、会议、车场、信息交流、商贸洽谈、室内外广场、购物中心和外商服务中心等多种功能为一体，可为客户提供商务、通讯、装饰、餐饮、休闲、娱乐、旅游、停车、运输、仓储、办公等配套服务，是武汉政治、经济、文化科技、商贸活动及信息交流中心，更是举办国际国内各类展览、会议、活动及接待外宾的理想场所。</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="w-label control-label">状态：</label>
+                                <label class="radio-label"><input type="radio" value="1" name="" checked="">正常</label>
+                                <label class="radio-label"><input type="radio" value="2" name="">隐藏</label>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <!-- 编辑部分 END -->
+
+        </div>
+
+        <!-- 编辑场馆 -->
+
+    </div>
+
+    <script src="../../dist/js/jquery.min.js"></script>
+    <script src="../../dist/js/common-iframe.js"></script>
+    <script src="../../dist/js/common.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('.js-add-item').on('click',function(){
+                var html,
+                $form = $('.pays-info .form-horizontal');
+                html = '<div class=\"form-group select-pays\"><label class=\"w-label control-label\"><select class=\"form-control\"><option value="">选择费用类型</option><option value="">水电费</option><option value="">空调使用费</option></select></label><div class=\"w-info\"><input type=\"text\" class=\"form-control\" placeholder=\"0.00\"></div><span class=\"icon icon-delcontact remove-item js-remove-item\"></span></div>';
+                $form.append(html);
+            });
+
+            $('.form-horizontal').on('click','.select-pays .js-remove-item',function() {
+                $(this).parent().remove();
+            })
+        });
+       
+    </script>
+
+</body>
+</html>
