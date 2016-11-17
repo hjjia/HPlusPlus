@@ -31,14 +31,15 @@ $('.js-nav-item').on('click', function () {
         _this.$selectAll = $(_this.selectAllClass);
         _this.$checkbox  = $(_this.checkboxClass);
 
+        _this.$table = _this.tableClass ? $(_this.tableClass) : _this.$selectAll.closest('table');
+
         // 表格头部固定 两个表格 头部 js-table-header
-        if( _this.$selectAll.closest('table').hasClass('js-table-header')) {
+        if( _this.$table.hasClass('js-table-header')) {
             _this.$tableHeader = _this.$selectAll.closest('table');
             _this.$table       = _this.$tableHeader.next();
         }
         else {
-
-            _this.$table = _this.tableClass ? $(_this.tableClass) : _this.$selectAll.closest('table');
+            _this.$tableHeader = _this.$table;
         }
 
 
@@ -81,12 +82,13 @@ $('.js-nav-item').on('click', function () {
     };
 
     Table.prototype.checkbox = function () {
-        var $table     = this.$table,
-            $selectAll = this.$selectAll,
-            $checkbox  = this.$checkbox;
+        var $table       = this.$table,
+            $tableHeader = this.$tableHeader,
+            $selectAll   = this.$selectAll,
+            $checkbox    = this.$checkbox;
 
         // 复选框选中
-        $table.on('click', this.checkboxClass, function (e) {
+        $tableHeader.on('click', this.checkboxClass, function (e) {
             e.stopPropagation();
             e.preventDefault();
 
@@ -188,16 +190,17 @@ $('.js-nav-item').on('click', function () {
 
     //
     Table.prototype.sort = function () {
-        var _this     = this,
-            $table    = _this.$table,
-            $sortItem = _this.$sortItem;
+        var _this        = this,
+            $table       = _this.$table,
+            $tableHeader = _this.$tableHeader,
+            $sortItem    = _this.$sortItem;
 
         /*
          *   th: sortItemClass
          *   up: sortUp
          * down: sortDown
          */
-        $table.on('click', _this.sortItemClass, function (e) {
+        $tableHeader.on('click', _this.sortItemClass, function (e) {
             e.stopPropagation();
             e.preventDefault();
 
@@ -292,7 +295,7 @@ $('.js-nav-item').on('click', function () {
     };
 
     $(window).on('load', function () {
-        $('.table').each(function () {
+        $('.js-table').each(function () {
             var $table = $(this);
 
             Plugin.call($table, $table.data());
