@@ -36,6 +36,11 @@ a {
     float: left;
 }
 
+.clearfix {
+    overflow:hidden;
+    _zoom:1;
+}
+
 .hide {
     display: none;
 }
@@ -211,7 +216,7 @@ label.control-label {
         opacity: 0;
         cursor: pointer;
 
-        &:checked + .checkbox {
+        &[checked="checked"] + .checkbox {
             .glyphicon-ok {
                 display: inline-block;
             }
@@ -361,6 +366,11 @@ label.control-label {
 				font-size: 16px;
 
 				cursor: pointer;
+
+                &.active {
+                    margin-top: 0;
+                    font-size: 22px;
+                }
 			}
 
 			.icon-menu-block-up {
@@ -368,6 +378,11 @@ label.control-label {
 				font-size: 16px;
 
 				cursor: pointer;
+
+                &.active {
+                    margin-bottom: 0;
+                    font-size: 22px;
+                }
 			}
 		}
 	}
@@ -380,6 +395,10 @@ label.control-label {
                 border-color: $checkboxSelectColor;
             }
         }
+    }
+
+    &.table-header {
+        margin-bottom: 0;
     }
 
     &.table-fix-height {
@@ -400,6 +419,7 @@ label.control-label {
                 td {
                     overflow: hidden;
 
+                    word-break: break-all;
                     text-overflow: ellipsis;
                     line-height: 1.6;
 
@@ -410,7 +430,7 @@ label.control-label {
 
 
         .fix-height {
-            overflow: hidden;
+            // overflow: hidden;
 
             text-overflow: ellipsis;
             max-height: $tableFixHeightDiv;
@@ -495,6 +515,10 @@ label.control-label {
 
 .mr20 {
     margin-right: 20px;
+}
+
+.ml10 {
+    margin-left: 10px;
 }
 
 .pagin-box {

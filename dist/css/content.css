@@ -96,6 +96,10 @@ a {
 .fl {
   float: left; }
 
+.clearfix {
+  overflow: hidden;
+  _zoom: 1; }
+
 .hide {
   display: none; }
 
@@ -192,7 +196,7 @@ label.control-label {
     margin: 0;
     opacity: 0;
     cursor: pointer; }
-    .checkbox-wrap input[type="checkbox"]:checked + .checkbox .glyphicon-ok {
+    .checkbox-wrap input[type="checkbox"][checked="checked"] + .checkbox .glyphicon-ok {
       display: inline-block; }
     .checkbox-wrap input[type="checkbox"] + .checkbox {
       position: absolute;
@@ -286,16 +290,24 @@ label.control-label {
     margin-top: -8px;
     font-size: 16px;
     cursor: pointer; }
+    .table thead > tr > th .options-wrap .icon-menu-block-down.active {
+      margin-top: 0;
+      font-size: 22px; }
   .table thead > tr > th .options-wrap .icon-menu-block-up {
     margin-bottom: -8px;
     font-size: 16px;
     cursor: pointer; }
+    .table thead > tr > th .options-wrap .icon-menu-block-up.active {
+      margin-bottom: 0;
+      font-size: 22px; }
 .table thead > tr:hover,
 .table tbody > tr:hover {
   background-color: #f5f5f7; }
   .table thead > tr:hover .checkbox,
   .table tbody > tr:hover .checkbox {
     border-color: #ff8e04; }
+.table.table-header {
+  margin-bottom: 0; }
 .table.table-fix-height col {
   height: 40px; }
 .table.table-fix-height thead > tr > th,
@@ -306,11 +318,11 @@ label.control-label {
   height: 56px; }
   .table.table-fix-height tbody tr td {
     overflow: hidden;
+    word-break: break-all;
     text-overflow: ellipsis;
     line-height: 1.6;
     height: 56px; }
 .table.table-fix-height .fix-height {
-  overflow: hidden;
   text-overflow: ellipsis;
   max-height: 40px; }
 .table.table-border tr th {
@@ -365,6 +377,9 @@ label.control-label {
 
 .mr20 {
   margin-right: 20px; }
+
+.ml10 {
+  margin-left: 10px; }
 
 .pagin-box {
   position: relative;

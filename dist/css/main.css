@@ -95,7 +95,8 @@ select.form-control {
 
 /* 供应商管理 */
 .operation-btns {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  min-width: 1187px; }
 
 .search-box {
   background-color: #fff;

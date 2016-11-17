@@ -4,7 +4,7 @@
  */
 (function ($) {
     // 全选 .js-table .js-select-all .js-checkbox
-    function tableSelect(element, options) {
+    function Table(element, options) {
         var _this = this;
 
         _this.tableClass     = options.tableClass;
@@ -18,32 +18,43 @@
         _this.checkbox();
     }
 
-    tableSelect.prototype.checkbox = function () {
+    Table.DEFAULTS = {
+        tableClass: '.table',
+        selectAllClass: '.js-select-all',
+        checkboxClass: '.js-checkbox'
+    };
+
+    Table.prototype.checkbox = function () {
         var $table     = this.$table,
             $selectAll = this.$selectAll,
             $checkbox  = this.$checkbox;
 
-        // 复选框选中 与选择一行发生冲突 暂时不用
-        /*   $table.on('click', this.checkboxClass, function (e) {
-         var $this = $(this);
+        // 复选框选中
+        $table.on('click', this.checkboxClass, function (e) {
+            e.stopPropagation();
+            e.preventDefault();
 
-         // selectCheckBox($selectAllDom, $checkBoxDom, $checkBoxDomAll)
-         selectCheckBox($selectAll, $this, $checkbox);
+            var $this = $(this);
 
-         });*/
+            selectCheckBox($selectAll, $this, $checkbox);
+
+        });
 
         //  全选 与选择一行发生冲突 暂时不用
-        /*  $table.on('click', this.selectAllClass, function (e) {
-         var $this = $(this);
+        $table.on('click', this.selectAllClass, function (e) {
+            e.stopPropagation();
+            e.preventDefault();
 
-         // selectCheckBoxAll($selectAllDom, $checkBoxDomAll)
-         selectCheckBoxAll($this, $checkbox);
-         });*/
+            var $this = $(this);
+
+            // selectCheckBoxAll($selectAllDom, $checkBoxDomAll)
+            selectCheckBoxAll($this, $checkbox);
+        });
 
         // 点击一行选中复选框
         $table.on('click', 'tr', function (e) {
-            //e.stopPropagation();
-            //e.preventDefault();
+            e.stopPropagation();
+            e.preventDefault();
 
             var $this            = $(this),
                 $checkboxCurrent = $this.find('.js-checkbox');
@@ -74,11 +85,11 @@
 
         if($this.prop('checked')) {
             $this.prop('checked', false);
-            $this.find('input[type="checkbox"]').prop('checked', false);
+            $this.find('input[type="checkbox"]').prop('checked', false).removeAttr('checked');
         }
         else {
             $this.prop('checked', true);
-            $this.find('input[type="checkbox"]').prop('checked', true);
+            $this.find('input[type="checkbox"]').prop('checked', true).attr('checked','checked');
         }
 
         // 判断是否被全选中
@@ -88,11 +99,11 @@
 
         if (isSelectAll) {
             $selectAllDom.prop('checked', true);
-            $selectAllDom.find('input[type="checkbox"]').prop('checked', true);
+            $selectAllDom.find('input[type="checkbox"]').prop('checked', true).attr('checked','checked');
         }
         else {
             $selectAllDom.prop('checked', false);
-            $selectAllDom.find('input[type="checkbox"]').prop('checked', false);
+            $selectAllDom.find('input[type="checkbox"]').prop('checked', false).removeAttr('checked');
         }
     }
 
@@ -106,20 +117,54 @@
 
         if($this.prop('checked')) {
             $this.prop('checked', false);
-            $this.find('input[type="checkbox"]').prop('checked', false);
+            $this.find('input[type="checkbox"]').prop('checked', false).removeAttr('checked');
             $checkBoxDomAll.prop('checked', false);
-            $checkBoxDomAll.find('input[type="checkbox"]').prop('checked', false);
+            $checkBoxDomAll.find('input[type="checkbox"]').prop('checked', false).removeAttr('checked');
         }
         else {
             $this.prop('checked', true);
-            $this.find('input[type="checkbox"]').prop('checked', true);
+            $this.find('input[type="checkbox"]').prop('checked', true).attr('checked','checked');
             $checkBoxDomAll.prop('checked', true);
-            $checkBoxDomAll.find('input[type="checkbox"]').prop('checked', true);
+            $checkBoxDomAll.find('input[type="checkbox"]').prop('checked', true).attr('checked','checked');
         }
     }
 
-    $.fn.tableSelect = function (options) {
-        return new tableSelect(this, options);
+
+
+    // 扩展到jQuery上
+    function Plugin(option) {
+        return this.each(function () {
+            var $this   = $(this),
+                data    = $this.data('bs.table'),
+                options = $.extend({}, Table.DEFAULTS, $this.data(), typeof option == 'object' && option);
+
+            !data && ($this.data('bs.table', new Table(this, options)));
+        })
+    }
+    var old = $.fn.table;
+
+    $.fn.table             = Plugin;
+    $.fn.table.Constructor = Table;
+
+    $.fn.table.noConflict = function () {
+        $.fn.table = old;
+        return this;
     };
 
+    // 事件处理程序 暂时没有用
+    var clickHandler = function (e) {
+        var $this = $(this);
+
+    };
+
+    $(window).on('load', function () {
+        $('.table').each(function () {
+            var $table = $(this);
+
+            Plugin.call($table, $table.data());
+        })
+    })
+
+
 })(jQuery);
+

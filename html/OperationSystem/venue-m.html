@@ -16,7 +16,7 @@
             <!-- 操作部分 -->
             <div class="operation-btns">
                 <button class="btn btn-info"><span class="icon icon-edit icon-left"></span>编辑</button>
-                <a href="#" class="operation-tips">若要添加新场馆，请前往聚橙官网后台</a>
+                <span  class="operation-tips">若要添加新场馆，请前往聚橙官网后台</span>
             </div>
             <!-- 操作部分END -->
             <!-- 搜索部分 -->
@@ -60,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <label  class="control-label">状态：</label>
-                        <select class="form-control form-list" >
+                        <select class="form-control form-list" placeholder="选择状态">
                             <option value="">选择状态</option>
                             <option value="">正常</option>
                             <option value="">隐藏</option>
@@ -78,20 +78,20 @@
             <div class="table-panel panel-white box table-panel-full row-box">
                 <div class="box-title">
                     <h5 class="title"><strong>场馆管理</strong></h5>
-                    <a class="fr js-nav-item" href="javascript:;" data-target="reports.html" data-index="222">更多>></a>
+                    
                 </div>
                 <div class="table-wrap box-content">
                     <table class="table table-border table-full js-table table-fix-height">
 
-                        <col width="52px" />
+                        <col width="41px" />
                         <col width="9%" />
-                        <col width="16%" />
+                        <col width="15%" />
                         <col width="9%" />
                         <col width="9%" />
-                        <col width="25%" />
+                        <col width="22%" />
                         <col width="10%" />
                         <col width="13%" />
-                        <col width="9%" />
+                        <col />
                         <thead>
                             <tr>
                                 <th>
@@ -106,7 +106,7 @@
                                         <span class="icon icon-menu-block-down block js-sort-down"></span>
                                     </div>
                                 </th>
-                                <th>城管名称</th>
+                                <th>场馆名称</th>
                                 <th>城市</th>
                                 <th>类型</th>
                                 <th class="max-td">适演剧种</th>
@@ -139,7 +139,7 @@
                                 </td>
                                 <td>Mr.x</td>
                                 <td>1886666666</td>
-                                <td><span class="icon icon-hidden font-24"></span></td>
+                                <td><span class="icon icon-normal font-24"></span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -294,7 +294,7 @@
     <script src="../../dist/js/common-iframe.js"></script>
     <script>
     $(function() {
-
+        
         //
         $(".js-sort-up").on('click', function() {
 

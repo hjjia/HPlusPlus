@@ -66,43 +66,52 @@
             <div class="table-panel panel-white box table-panel-full row-box">
                 <div class="box-title">
                     <h5 class="title"><strong>供应商管理</strong></h5>
-                    <a class="fr js-nav-item" href="javascript:;" data-target="reports.html" data-index="222">更多>></a>
+                    
                 </div>
                 <div class="table-wrap box-content">
-                    <table class="table table-border table-full js-table table-fix-height">
-                        <col width="52px" />
+                    <table class="table table-border table-full js-table table-fix-height table-header">
+                        <col width="41px" />
                         <col width="30%" />
                         <col width="15%" />
                         <col width="15%" />
-                        <col width="15%" />
-                        <col width="9%" />
-                        <col width="9%" />
+                        <col/>
+                        <col width="12%" />
+                        <col width="12%" />
                         <thead>
-                            <tr>
-                                <th>
-                                    <div class="checkbox-wrap js-select-all">
-                                        <input type="checkbox">
-                                        <label class="checkbox"><span class="glyphicon glyphicon-ok"></span></label>
-                                    </div>
-                                </th>
-                                <th class="max-td">供应商ID</th>
-                                <th>国家</th>
-                                <th>联系人</th>
-                                <th>联系人手机</th>
-                                <th>合作项目
-                                    <div class="options-wrap fr">
-                                        <span class="icon icon-menu-block-up block js-sort-up"></span>
-                                        <span class="icon icon-menu-block-down block js-sort-down"></span>
-                                    </div>
-                                </th>
-                                <th>状态
-                                    <div class="options-wrap fr">
-                                        <span class="icon icon-menu-block-up block js-sort-up"></span>
-                                        <span class="icon icon-menu-block-down block js-sort-down"></span>
-                                    </div>
-                                </th>
-                            </tr>
+                        <tr>
+                            <th>
+                                <div class="checkbox-wrap js-select-all">
+                                    <input type="checkbox">
+                                    <label class="checkbox"><span class="glyphicon glyphicon-ok"></span></label>
+                                </div>
+                            </th>
+                            <th class="max-td">供应商ID</th>
+                            <th>国家</th>
+                            <th>联系人</th>
+                            <th>联系人手机</th>
+                            <th class="js-sort-item">合作项目
+                                <div class="options-wrap fr">
+                                    <span class="icon icon-menu-block-up block js-sort-up"></span>
+                                    <span class="icon icon-menu-block-down block js-sort-down"></span>
+                                </div>
+                            </th>
+                            <th class="js-sort-item">状态
+                                <div class="options-wrap fr">
+                                    <span class="icon icon-menu-block-up block js-sort-up"></span>
+                                    <span class="icon icon-menu-block-down block js-sort-down"></span>
+                                </div>
+                            </th>
+                        </tr>
                         </thead>
+                    </table>
+                    <table class="table table-border table-full js-table table-fix-height">
+                        <col width="41px" />
+                        <col width="30%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col/>
+                        <col width="12%" />
+                        <col width="12%" />
                         <tbody>
                             <tr>
                                 <td>
@@ -301,10 +310,16 @@
             console.log('hello')
         });
 
-    /*    $('.js-table').tableSelect({
-            selectAllClass: '.js-select-all',
-            checkboxClass: '.js-checkbox'
-        });*/
+        $('.js-table').table({
+           sort: {
+               sortUpFun: function ($dom) {
+                   console.log('hello world up',$dom);
+               },
+               sortDownFun: function ($dom) {
+                   console.log('hello world down',$dom);
+               }
+           }
+        });
 
     })
     </script>

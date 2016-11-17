@@ -43,6 +43,7 @@ select.form-control {
 
 .operation-btns {
     margin-bottom: 30px;
+    min-width: $minWidth;
 }
 
 .search-box {
