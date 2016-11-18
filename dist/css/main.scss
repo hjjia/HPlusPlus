@@ -58,7 +58,7 @@ select.form-control {
         margin-right: 15px;
         margin-left: 0;
         .form-list {
-            width: inherit !important;
+            width: auto;
             display: inline-block;
         }
     }
@@ -174,7 +174,7 @@ select.form-control {
             position: relative;
 
             .w-label {
-                margin-left: -20px;
+                // margin-left: -20px;
             }
 
             .del-contact {

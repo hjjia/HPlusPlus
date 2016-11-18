@@ -175,6 +175,7 @@ label.control-label {
 
     -webkit-transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s;
     transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s;
+    box-shadow: none;
 
     color: inherit;
     background-color: #FFF;
@@ -305,6 +306,33 @@ label.control-label {
 
         background-color: #fff;
         color: inherit;
+
+    }
+}
+
+.table-wrap {
+
+    .table-scroll {
+        position: relative;
+        overflow-x: auto;
+
+        width: $minTableWidth;
+    }
+
+    .table-header-wrap {
+        padding-right: 17px;
+
+        & + .table {
+            margin-top: 42px;
+        }
+
+        & + .table-body-wrap {
+            overflow-x: auto;
+            overflow-y: scroll;
+
+            max-height: $tablePanelHeight;
+
+        }
     }
 }
 
@@ -453,6 +481,115 @@ label.control-label {
 
 
 }
+
+/* 模糊查询 */
+.blur-panel {
+    display: inline-block;
+    position: relative;
+
+    border: 1px solid $borderColor;
+
+    padding: 0 5px;
+
+    box-shadow: none;
+
+    &.active {
+        border-color: $inputHoverBorderColor;
+
+        .blur-wrap {
+            border-color: $inputHoverBorderColor;
+        }
+    }
+
+    .glyphicon-remove {
+        margin-left: 5px;
+        font-size: 12px;
+
+        cursor: pointer;
+    }
+
+    .icon-menu-block-down {
+        cursor: pointer;
+    }
+
+    .selected-list {
+        display: inline-block;
+        vertical-align: middle;
+
+        .selected-item {
+            display: inline-block;
+
+            border-radius: 3px;
+            padding: 3px 5px;
+
+            background-color: $inputHoverBorderColor;
+            color: $advanceBg;
+        }
+    }
+
+    .form-control {
+        display: inline-block;
+
+        border: none;
+        box-shadow: none;
+        outline: none;
+
+        -webkit-transition: none;
+        transition: none;
+
+        &:focus,
+        &:active {
+            border: none;
+        }
+    }
+
+    .blur-wrap {
+        position: absolute;
+
+        top: 100%;
+        left: -1px;
+        right: -1px;
+
+        border: 1px solid $borderColor;
+
+        .list-block {
+            list-style: none;
+            margin-bottom: 0;
+            padding-left: 5px;
+            padding-right: 5px;
+
+            .list-item {
+                .item-content {
+                    padding: 5px 10px;
+
+                    .glyphicon-remove {
+                        display: none;
+                        float: right;
+
+                        line-height: inherit;
+                    }
+                }
+
+                &:hover {
+                    .item-content {
+                        background-color: $tableHoverBg;
+                    }
+                }
+
+                &.active {
+                    .item-content {
+                        background-color: $tableHoverBg;
+
+                        .glyphicon-remove {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* 模糊查询 END */
 
 
 .block {

@@ -1,15 +1,25 @@
 @charset "UTF-8";
 /* 全局变量 */
 /* 全局变量 END */
+/* 字体样式变量 */
+/* 字体样式变量 END */
 /* 框架侧边导航变量 */
 /* 框架侧边导航变量 END */
 /* 头部导航变量 */
 /* 头部导航变量 END */
+/* iframe 内部变量 */
+/* iframe 内部变量 END */
+/* 表格变量 */
+/* 表格变量 END */
+/* 按钮公共变量 */
+/* 按钮公共变量 END */
+/* 表单样式 */
+/* 表单样式 END */
 @font-face {
   font-family: 'iconfont';
   /* project id："177769" */
-  src: url("http://at.alicdn.com/t/font_4x1is49od17l23xr.eot");
-  src: url("http://at.alicdn.com/t/font_4x1is49od17l23xr.eot") format("embedded-opentype"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.woff") format("woff"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.ttf") format("truetype"), url("http://at.alicdn.com/t/font_4x1is49od17l23xr.svg#iconfont") format("svg"); }
+  src: url("http://at.alicdn.com/t/font_92t1kn6bmcpx2yb9.eot");
+  src: url("http://at.alicdn.com/t/font_92t1kn6bmcpx2yb9.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_92t1kn6bmcpx2yb9.woff") format("woff"), url("http://at.alicdn.com/t/font_92t1kn6bmcpx2yb9.ttf") format("truetype"), url("http://at.alicdn.com/t/font_92t1kn6bmcpx2yb9.svg#iconfont") format("svg"); }
 .icon {
   position: relative;
   font-family: "iconfont" !important;
@@ -61,5 +71,13 @@
     content: "\e639"; }
   .icon.icon-upload:before {
     content: "\e636"; }
+  .icon.icon-prepage:before {
+    content: "\e602"; }
+  .icon.icon-nextpage:before {
+    content: "\e655"; }
+  .icon.icon-firstpage:before {
+    content: "\e7d0"; }
+  .icon.icon-lastpage:before {
+    content: "\e7e0"; }
 
 /*# sourceMappingURL=variables.css.map */

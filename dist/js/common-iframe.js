@@ -31,15 +31,14 @@ $('.js-nav-item').on('click', function () {
         _this.$selectAll = $(_this.selectAllClass);
         _this.$checkbox  = $(_this.checkboxClass);
 
-        _this.$table = _this.tableClass ? $(_this.tableClass) : _this.$selectAll.closest('table');
+        _this.$tableHeader = _this.tableHeaderClass ? $(_this.tableHeaderClass) : _this.$selectAll.closest('table');
 
         // 表格头部固定 两个表格 头部 js-table-header
-        if( _this.$table.hasClass('js-table-header')) {
-            _this.$tableHeader = _this.$selectAll.closest('table');
-            _this.$table       = _this.$tableHeader.next();
+        if( _this.$tableHeader.length > 0) {
+            _this.$table = _this.$tableHeader.closest('.js-table-header-wrap').next().find('.js-table');
         }
         else {
-            _this.$tableHeader = _this.$table;
+            _this.$tableHeader = _this.$table = $(_this.tableClass);
         }
 
 
@@ -67,7 +66,8 @@ $('.js-nav-item').on('click', function () {
      * down: .js-sort-down
      */
     Table.DEFAULTS = {
-        tableClass    : '.table',
+        tableHeaderClass  : '.js-table-header',
+        tableClass        : '.js-table',
         select: {
             selectAllClass: '.js-select-all',
             checkboxClass : '.js-checkbox'
@@ -76,19 +76,20 @@ $('.js-nav-item').on('click', function () {
             sortItemClass : '.js-sort-item',
             sortUpClass   : '.js-sort-up',
             sortDownClass : '.js-sort-down',
-            sortUpFun     : function () {console.log('up1');},
-            sortDownFun   : function () {console.log('down2');}
+            sortUpFun     : function () {},
+            sortDownFun   : function () {}
         }
     };
 
     Table.prototype.checkbox = function () {
-        var $table       = this.$table,
+        var _this        = this,
+            $table       = this.$table,
             $tableHeader = this.$tableHeader,
             $selectAll   = this.$selectAll,
             $checkbox    = this.$checkbox;
 
         // 复选框选中
-        $tableHeader.on('click', this.checkboxClass, function (e) {
+        $table.on('click', this.checkboxClass, function (e) {
             e.stopPropagation();
             e.preventDefault();
 
@@ -100,7 +101,7 @@ $('.js-nav-item').on('click', function () {
          });
 
         //  全选 与选择一行发生冲突 暂时不用
-        $table.on('click', this.selectAllClass, function (e) {
+        $tableHeader.on('click', this.selectAllClass, function (e) {
             e.stopPropagation();
             e.preventDefault();
 
@@ -110,7 +111,7 @@ $('.js-nav-item').on('click', function () {
              selectCheckBoxAll($this, $checkbox);
          });
 
-        // 点击一行选中复选框
+        // 点击一行选中复选框 table-body
         $table.on('click', 'tr', function (e) {
             e.stopPropagation();
             e.preventDefault();
@@ -118,18 +119,22 @@ $('.js-nav-item').on('click', function () {
             var $this            = $(this),
                 $checkboxCurrent = $this.find('.js-checkbox');
 
-            if($checkboxCurrent.length == 0) {
-                $checkboxCurrent =  $this.find('.js-select-all');
+            // selectCheckBox($selectAllDom, $checkBoxDom, $checkBoxDomAll)
+            selectCheckBox($selectAll, $checkboxCurrent, $checkbox);
+        });
 
-                // selectCheckBoxAll($selectAllDom, $checkBoxDomAll)
-                selectCheckBoxAll($checkboxCurrent, $checkbox);
-            }
-            else {
+        // 点击一行选中复选框 table-header
+        $tableHeader.on('click', 'tr', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
 
-                // selectCheckBox($selectAllDom, $checkBoxDom, $checkBoxDomAll)
-                selectCheckBox($selectAll, $checkboxCurrent, $checkbox);
-            }
-        })
+            var $this            = $(this),
+                $checkboxCurrent = $this.find(_this.selectAllClass);
+
+            // selectCheckBoxAll($selectAllDom, $checkBoxDomAll)
+            selectCheckBoxAll($checkboxCurrent, $checkbox);
+        });
+
     };
 
     /**
@@ -301,7 +306,6 @@ $('.js-nav-item').on('click', function () {
             Plugin.call($table, $table.data());
         })
     })
-
 
 })(jQuery);
 
