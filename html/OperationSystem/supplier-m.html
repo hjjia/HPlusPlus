@@ -33,23 +33,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">联系人：</label>
-                        <div class="blur-panel active">
-                            <div class="selected-list">
-                                <span class="selected-item">aaa<span class="glyphicon glyphicon-remove"></span></span>
-                                <span class="selected-item">aaa<span class="glyphicon glyphicon-remove"></span></span>
-                                <span class="selected-item">aaa<span class="glyphicon glyphicon-remove"></span></span>
-                            </div>
-                            <input type="text" class="form-control form-list" placeholder="输入姓名">
+                        <div class="blur-panel js-blur-panel">
+                            <input type="text" class="form-control form-list js-blur-input" placeholder="输入姓名">
                             <span class="icon icon-menu-block-down"></span>
-                            <div class="blur-wrap">
-                                <ul class="list-block">
-                                    <li class="list-item active">
-                                        <div class="item-content">
-                                            <span class="text">aaaaa </span>
-                                            <span class="glyphicon glyphicon-remove"></span></div>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -142,7 +128,7 @@
                                     </td>
                                     <td class="max-td">
                                         <div class="fix-height">
-                                            <a href="javascript:;" class="">小橙堡儿童剧团小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡</a>
+                                            <a href="javascript:;" data-target="https://www.baidu.com" class="js-nav-item">小橙堡儿童剧团小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡小橙堡</a>
                                         </div>
                                     </td>
                                     <td>中国</td>
@@ -348,19 +334,20 @@
     <script src="../../dist/js/common-iframe.js"></script>
     <script>
     $(function() {
+        var option = {
+            multiSelect: true,
+            ajax: {
+                type: "GET",
+                dataType: "json",
+                url: 'blur-selection.json'
+            },
+            enterKeyFun: function ($dom) {
+                console.log('hello word',$dom)
+            }
+        }
 
-        //
-        $(".js-sort-up").on('click', function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-        });
-
-        $('.js-sort-down').on('click', function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-        });
+        // 模糊查询 使用测试
+        $('.js-blur-panel').blurSelect(option);
 
         $('.js-block-remove').on('click',function (e) {
             e.stopPropagation();

@@ -14,6 +14,290 @@ $('.js-nav-item').on('click', function () {
     //$this.addClass('active').siblings('.js-nav-item').removeClass('active');
 });
 
+/*
+* 模糊查询
+*/
+(function($) {
+
+    var blurSelect = function (element, options) {
+        var _this = this;
+
+        _this.options = options;
+        _this.$panel  = $(_this.options.panelClass);
+
+        _this.selectArr = [];
+
+        _this.focusSelect();
+        _this.select();
+        _this.hideWrap();
+    };
+
+    blurSelect.DEFAULTS = {
+        multiSelect: false,
+        panelClass : '.js-blur-panel',
+        inputClass : '.js-blur-input',
+        wrapClass  : '.js-blur-wrap',
+        ajax       : {
+            type    : 'GET',
+            url     : '',
+            dataType: 'json',
+            data    : ''
+        },
+        enterKeyFun : function ($input) {
+            console.log('enter')
+        }
+    };
+
+    /**
+     * Description: 输入框获得焦点
+     * Functions  : 1. panel add active class; 2. send ajax
+     */
+    blurSelect.prototype.focusSelect = function () {
+        var _this  = this,
+            $panel = _this.$panel,
+            $input = $(_this.options.inputClass);
+
+        /*
+         * 输入框获得焦点
+         * 1. panel add active class
+         * 2. 模糊查询
+         */
+        $input.on('focus', function () {
+            $panel.addClass('active');
+            _this.createResultHtml();
+            _this.sendAjax();
+        })
+    };
+
+    /**
+     * 隐藏wrap
+     */
+    blurSelect.prototype.hideWrap = function () {
+        var _this = this;
+
+        $('body').on('click', function (e) {
+            if($(e.target).closest(_this.options.panelClass).length == 0) {
+                _this.$panel.removeClass('active');
+            }
+        })
+    };
+
+    /**
+     * 查询入口方法
+     */
+    blurSelect.prototype.select = function () {
+
+        // 创建HTML 和 发送ajax
+        this.selectCommon();
+
+        /*
+         * 1. 判断是否为多选模糊查询  option -> multiSelect 默认为单模糊查询
+         */
+        if(this.options.multiSelect) { // 多选模糊查询
+            this.multiSelect();
+        }
+        else {  // 单选模糊查询
+            this.singleSelect();
+        }
+    };
+
+    /**
+     * 多选查询和单选查询 公共方法 -- 创建HTML和ajax发送
+     */
+    blurSelect.prototype.selectCommon = function () {
+        var _this  = this,
+            $panel = _this.$panel;
+
+        /*
+         * 1. 创建查询结果面板
+         * 2. 监听input keyup事件
+         * 3. 遍历结果
+         */
+        _this.createResultHtml();
+
+        // 模糊查询
+        $panel.on('keyup', _this.options.inputClass, function (e) {
+            var e          = e || event,
+                currentKey = e.keyCode || e.which || e.charCode;  //支持IE,FireFox;
+
+            if(currentKey == 13){
+                _this.options.enterKeyFun($(this));
+                $panel.removeClass('active');
+            }
+            else {
+                _this.sendAjax();
+            }
+        });
+
+        // 禁止输入框回车自动刷新页面
+        $panel.on('keydown', _this.options.inputClass, function (e) {
+            var e          = e || event,
+                currentKey = e.keyCode || e.which || e.charCode;  //支持IE,FireFox;
+
+            if(currentKey == 13){
+                return false;
+            }
+        });
+
+
+    };
+
+    /**
+     *
+     */
+    blurSelect.prototype.sendAjax = function () {
+        var _this     = this,
+            $panel    = _this.$panel,
+            $input    = $(_this.options.inputClass),
+            value     = $input.val(),
+            $wrap     = $panel.find(_this.options.wrapClass),
+            ajaxType  = _this.options.ajax,
+            html      = '',
+            result    = '',
+            selectArr = _this.selectArr;
+
+        $.ajax({
+            type: ajaxType.type,
+            dataType: ajaxType.dataType,
+            url: ajaxType.url,
+            data: {keyword: value},
+            success: function (data) {
+                result = data.data;
+
+                // 添加数据 data.data
+                for(var i = 0,len = result.length; i < len; i ++) {
+                    if($.inArray(result[i].id.toString(), selectArr) == -1) {
+                        html += '<li class="list-item js-list-item" data-id="' + result[i].id + '">';
+                    }
+                    else {
+                        html += '<li class="list-item js-list-item active" data-id="' + result[i].id + '">';
+                    }
+                    html += '<div class="item-content">';
+                    html += '<span class="text">' + result[i].text + '</span>';
+                    html += '<span class="glyphicon glyphicon-remove"></span>';
+                    html += '</div>';
+                    html += '</li>';
+                }
+
+                $wrap.find('.list-block').html(html);
+            }
+        })
+    };
+
+    /**
+     * 多选模糊查询
+     */
+    blurSelect.prototype.multiSelect = function () {
+        var _this  = this,
+            $panel = _this.$panel;
+
+        /*
+         * 选择列表数据
+         * 1. 判断是否被选中 如果没有被选中 -> 更新当前状态，并且数据更新到查询面板上
+         */
+        $panel.on('click', '.js-list-item', function () {
+            var $this     = $(this),
+                id        = $this.attr('data-id'),
+                html      = '',
+                selectArr = _this.selectArr;
+
+            if($this.hasClass('active')) { // 如果已经被选中
+                $this.removeClass('active');
+                $panel.find('.js-select-list .js-selected-item[data-id="' + id + '"]').remove();
+
+                selectArr.splice($.inArray(id, selectArr),1);
+            }
+            else { // 如果没有被选中
+                if($panel.find('.js-select-list').length == 0) {
+                    html += '<div class="selected-list js-select-list">';
+                    html += '</div>';
+
+                    $panel.find(_this.options.inputClass).before(html);
+                }
+
+                html = '';
+                html += '<span class="selected-item js-selected-item" data-id="' + id + '">' + $this.text();
+                html += '<span class="glyphicon glyphicon-remove js-selected-remove"></span></span>';
+                $panel.find('.js-select-list').append(html);
+
+                // 更新当前状态
+                $this.addClass('active');
+
+                selectArr.push(id);
+            }
+        });
+
+        // 面板选中移除按钮 删除当前选中信息
+        $panel.on('click', '.js-selected-remove', function (e) {
+            e.stopImmediatePropagation();  // 阻止其他绑定在该元素上的事件运行，如果不加，会跟hideWrap()方法冲突
+
+            var $selectedItem = $(this).closest('.js-selected-item'),
+                id            = $selectedItem.attr('data-id'),
+                selectArr     = _this.selectArr;
+
+            selectArr.splice($.inArray(id, selectArr),1);
+            $('.js-blur-wrap .js-list-item[data-id="' + id + '"]').removeClass('active');
+            $selectedItem.remove();
+
+            $(_this.options.inputClass).focus();
+        });
+    };
+
+    /**
+     * 单选模糊查询
+     */
+    blurSelect.prototype.singleSelect = function () {
+        var _this  = this,
+            $panel = _this.$panel;
+
+        /*
+         * 选择信息 .js-list-item
+         * 1. 隐藏wrap面板
+         * 2. 更新select-list
+         */
+        $panel.on('click', '.js-list-item', function () {
+            var $this  = $(this),
+                $wrap  = $this.closest(_this.options.wrapClass),
+                $input = $(_this.options.inputClass);
+
+            $input.val($this.text()).attr('data-id', $this.attr('data-id'));
+            $panel.removeClass('active');
+        })
+    };
+
+    blurSelect.prototype.createResultHtml = function () {
+        var html   = '',
+            $panel = this.$panel;
+
+        $panel.find(this.options.wrapClass).remove();
+
+        html += '<div class="blur-wrap ' + this.options.wrapClass.substring(1) + '">';
+        html += '<ul class="list-block">';
+        html += '</ul>';
+        html += '</div>';
+
+        $panel.append(html);
+    };
+
+    /**
+     * Description: 扩展到jquery上
+     * @param option
+     * @returns {blurSelect}
+     */
+    $.fn.blurSelect = function (option) {
+        var options = null;
+
+        option.ajax = $.extend({}, blurSelect.DEFAULTS.ajax, option.ajax);
+        options     = $.extend({}, blurSelect.DEFAULTS, option);
+        return new blurSelect(this, options);
+    };
+
+})(jQuery);
+
+
+/*
+ * 表格操作 全选和排序
+ */
 (function ($) {
     // 全选 .js-table .js-select-all .js-checkbox
     function Table(element, options) {

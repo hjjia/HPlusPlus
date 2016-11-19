@@ -363,6 +363,7 @@ label.control-label {
   .blur-panel.active {
     border-color: #f8ac59; }
     .blur-panel.active .blur-wrap {
+      display: block;
       border-color: #f8ac59; }
   .blur-panel .glyphicon-remove {
     margin-left: 5px;
@@ -389,11 +390,13 @@ label.control-label {
     .blur-panel .form-control:focus, .blur-panel .form-control:active {
       border: none; }
   .blur-panel .blur-wrap {
+    display: none;
     position: absolute;
     top: 100%;
     left: -1px;
     right: -1px;
-    border: 1px solid #e7e7e7; }
+    border: 1px solid #e7e7e7;
+    background-color: #fff; }
     .blur-panel .blur-wrap .list-block {
       list-style: none;
       margin-bottom: 0;

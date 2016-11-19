@@ -497,6 +497,8 @@ label.control-label {
         border-color: $inputHoverBorderColor;
 
         .blur-wrap {
+            display: block;
+
             border-color: $inputHoverBorderColor;
         }
     }
@@ -544,6 +546,7 @@ label.control-label {
     }
 
     .blur-wrap {
+        display: none;
         position: absolute;
 
         top: 100%;
@@ -551,6 +554,8 @@ label.control-label {
         right: -1px;
 
         border: 1px solid $borderColor;
+
+        background-color: #fff;
 
         .list-block {
             list-style: none;

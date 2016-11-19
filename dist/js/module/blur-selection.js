@@ -24,6 +24,15 @@
             data    : ''
         }
     };
+    
+    $.fn.blurSelect = function (option) {
+        var options = null;
+        
+        option.ajax = $.extend({}, blurSelect.DEFAULTS.ajax, option.ajax);
+        options     = $.extend({}, blurSelect.DEFAULTS, option);
+        
+        return new blurSelect(this, options);
+    };
 
     blurSelect.prototype.select = function () {
 
@@ -57,7 +66,10 @@
                 type: ajaxType.type,
                 dataType: ajaxType.dataType,
                 url: ajaxType.url,
-                data: {value}
+                data: {keyword: value},
+                success: function (data) {
+                    
+                }
             })
         });
     };
